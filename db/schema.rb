@@ -10,11 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_30_054117) do
+ActiveRecord::Schema.define(version: 2020_09_30_092023) do
 
   create_table "addresses", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "customer_id"
+    t.string "postcode"
+    t.string "address"
+    t.string "name"
   end
 
   create_table "admins", force: :cascade do |t|
@@ -30,6 +34,16 @@ ActiveRecord::Schema.define(version: 2020_09_30_054117) do
   create_table "customers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "last_name"
+    t.string "first_name"
+    t.string "last_name_kana"
+    t.string "first_name_kana"
+    t.string "email"
+    t.string "postcode"
+    t.string "address"
+    t.string "phone"
+    t.string "encrypted_password"
+    t.boolean "customer_status"
   end
 
   create_table "ordered_products", force: :cascade do |t|
@@ -40,6 +54,11 @@ ActiveRecord::Schema.define(version: 2020_09_30_054117) do
   create_table "orders", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "order_id"
+    t.integer "product_id"
+    t.integer "amount"
+    t.integer "price"
+    t.integer "make_status"
   end
 
   create_table "product_genres", force: :cascade do |t|
