@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_30_150501) do
+ActiveRecord::Schema.define(version: 2020_09_30_155903) do
 
   create_table "addresses", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 2020_09_30_150501) do
   create_table "cart_products", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "amount"
-    t.integer "product_id"
-    t.integer "customer_id"
+    t.integer "amount", null: false
+    t.integer "product_id", null: false
+    t.integer "customer_id", null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -48,20 +48,20 @@ ActiveRecord::Schema.define(version: 2020_09_30_150501) do
   create_table "product_genres", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
+    t.string "name", null: false
     t.string "genres_status_boolean"
-    t.boolean "genres_status"
+    t.boolean "genres_status", default: false, null: false
   end
 
   create_table "products", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "image_id"
-    t.text "body"
-    t.integer "price"
-    t.boolean "sale_status"
-    t.integer "product_genre_id"
+    t.string "name", null: false
+    t.string "image_id", null: false
+    t.text "body", null: false
+    t.integer "price", null: false
+    t.boolean "sale_status", default: false, null: false
+    t.integer "product_genre_id", null: false
   end
 
   create_table "users", force: :cascade do |t|
