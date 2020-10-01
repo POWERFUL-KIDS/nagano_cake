@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_30_092023) do
+ActiveRecord::Schema.define(version: 2020_10_01_053928) do
 
   create_table "addresses", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "customer_id"
-    t.string "postcode"
-    t.string "address"
-    t.string "name"
+    t.integer "customer_id", null: false
+    t.string "postcode", null: false
+    t.string "address", null: false
+    t.string "name", null: false
   end
 
   create_table "admins", force: :cascade do |t|
@@ -34,16 +34,16 @@ ActiveRecord::Schema.define(version: 2020_09_30_092023) do
   create_table "customers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "last_name"
-    t.string "first_name"
-    t.string "last_name_kana"
-    t.string "first_name_kana"
-    t.string "email"
-    t.string "postcode"
-    t.string "address"
-    t.string "phone"
-    t.string "encrypted_password"
-    t.boolean "customer_status"
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "last_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.string "email", null: false
+    t.string "postcode", null: false
+    t.string "address", null: false
+    t.string "phone", null: false
+    t.string "encrypted_password", null: false
+    t.boolean "customer_status", default: false, null: false
   end
 
   create_table "ordered_products", force: :cascade do |t|
@@ -54,11 +54,14 @@ ActiveRecord::Schema.define(version: 2020_09_30_092023) do
   create_table "orders", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "order_id"
-    t.integer "product_id"
-    t.integer "amount"
-    t.integer "price"
-    t.integer "make_status"
+    t.integer "customer_id", null: false
+    t.string "postcode", null: false
+    t.string "address", null: false
+    t.string "name", null: false
+    t.integer "fee", default: 800, null: false
+    t.integer "total_payment", null: false
+    t.integer "order_status", default: 0, null: false
+    t.integer "payment_method", default: 0, null: false
   end
 
   create_table "product_genres", force: :cascade do |t|
