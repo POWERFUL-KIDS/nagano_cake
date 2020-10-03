@@ -1,6 +1,4 @@
-<%= content_for?(:content) ? yield(:content) : yield %>
-
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>NaganoCake</title>
@@ -12,7 +10,9 @@
   </head>
 
   <body>
+    <% content_for :content do %>
     <%= yield %>
+    <% end %>
+    <%= render template: "layouts/application" %>
   </body>
 </html>
- -->
