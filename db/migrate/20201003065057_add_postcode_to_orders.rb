@@ -1,4 +1,4 @@
-class AddOrdersToOrders < ActiveRecord::Migration[5.2]
+class AddPostcodeToOrders < ActiveRecord::Migration[5.2]
   def change
     add_column :orders, :customer_id, :integer
     add_column :orders, :postcode, :string
