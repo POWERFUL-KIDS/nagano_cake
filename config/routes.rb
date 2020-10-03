@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :admins
 
-  # namespace :admin do
-  	  devise_for :admins, controller: {
- 		sessions: "admins/sessions",
- 		passwords: "admins/passwords",
- 		registrations: "admins/registration"
- 		}
-  # end
+	namespace :admin do
+  		root to: 'admin#top'
+  	end
+
+ 	scope module: :public do
+    	root to: 'products#top'
+  	end
+
 end

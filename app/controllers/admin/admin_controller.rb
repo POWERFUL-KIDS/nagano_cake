@@ -1,5 +1,6 @@
 class Admin::AdminController < ApplicationController
-	def new
-		@admin = Admin
+
+	def top
 	end
+
 end
