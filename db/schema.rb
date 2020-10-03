@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_10_03_065250) do
 
   create_table "addresses", force: :cascade do |t|
@@ -49,6 +50,11 @@ ActiveRecord::Schema.define(version: 2020_10_03_065250) do
     t.string "phone", null: false
     t.string "encrypted_password", null: false
     t.boolean "customer_status", default: false, null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_customers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
   create_table "ordered_products", force: :cascade do |t|
